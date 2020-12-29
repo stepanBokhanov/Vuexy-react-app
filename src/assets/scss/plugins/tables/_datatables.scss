@@ -1,0 +1,44 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+
+// Core variables and mixins overrides
+@import "../../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../../core/variables/components-variables";
+
+.rdt_Wrapper {
+  header {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .dataTable-custom {
+    .rdt_Table {
+      .rdt_TableBody {
+        .rdt_TableRow {
+          min-height: 50px;
+        }
+      }
+    }
+  }
+}
+.rdt_Pagination {
+  #pagination-first-page,
+  #pagination-previous-page,
+  #pagination-next-page,
+  #pagination-last-page {
+    background: $pagination-bg-color;
+    border-radius: 50%;
+    &[disabled] {
+      svg {
+        fill: rgba($body-color, 0.5);
+      }
+    }
+    &:not(:last-of-type) {
+      margin-right: 0.5rem;
+    }
+  }
+}

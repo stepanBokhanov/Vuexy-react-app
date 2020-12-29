@@ -1,0 +1,44 @@
+// Core variables and mixins
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+.import-component,
+.export-component{
+  .filter{
+    .form-control{
+      max-width: 200px;
+      border-radius: 5rem;
+    }
+  }
+  table{
+    tr.selected{
+      background-color: rgba($color: $primary, $alpha: .1);
+      color: $primary;
+      box-shadow: 0 0 1px 0 rgba($primary, 1);
+      &:hover{
+        transform: none;
+      }
+    }
+  }
+}
+
+@media(max-width: 455px){
+  .import-component,
+  .export-component{
+  .filter{
+    margin-top: 1rem;
+    width: 100%;
+    .form-control{
+      max-width: none;
+    }
+  }
+}
+}

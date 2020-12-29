@@ -1,0 +1,182 @@
+// Core variables and mixin
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/mixins";
+@import "../bootstrap-extended/mixins";
+
+// Load variable overrides
+@import "../core/variables/variables";
+@import "~bootstrap/scss/_variables.scss";
+
+// Overrides user variable
+@import "../core/variables/components-variables";
+
+// Data List
+
+.data-list {
+  header {
+    display: block;
+    background: transparent;
+    padding: 0 1rem;
+    .add-new-btn {
+      padding: 0.9rem 0.938rem;
+    }
+    .sort-dropdown {
+      border: 1px solid $gray-300;
+      background-color: $white;
+      padding: 1.02rem 0.65rem !important;
+      border-radius: 5rem;
+    }
+    .filter-section {
+      position: relative;
+      input {
+        padding: 1.45rem 0rem;
+        padding-left: 2.8rem;
+        border-radius: 1.428rem;
+        border: 1px solid $gray-300;
+        max-width: 200px;
+      }
+      &:after {
+        content: "\e8bd";
+        font-family: feather;
+        position: absolute;
+        left: 1rem;
+        top: 0.85rem;
+      }
+    }
+  }
+  .rdt_Table {
+    background-color: transparent;
+    color: $body-color;
+    padding: 0 1rem;
+    margin-top: 1rem;
+
+    .rdt_TableCol:first-child,
+    .rdt_TableCell:first-child {
+      flex: 0 0 80px;
+    }
+
+    .rdt_TableHead {
+      .rdt_TableHeadRow {
+        background-color: transparent;
+        border: 0;
+        min-height: 61px;
+        .rdt_TableCol {
+          font-size: 0.85rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          color: $body-color;
+          .rdt_TableCol_Sortable {
+            color: $body-color;
+            svg {
+              height: 15px !important;
+              width: 15px !important;
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    .rdt_TableBody {
+      .rdt_TableRow {
+        min-height: 69px;
+        margin-bottom: 20px;
+        border: 0;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+        font-size: 1rem;
+        font-weight: 500;
+        color: $body-color;
+        &:hover {
+          transform: translateY(-4px);
+        }
+        // .rdt_TableCell {
+        // }
+      }
+    }
+    & ~ .rdt_Pagination {
+      color: $body-color;
+      border: 0;
+      background-color: transparent;
+    }
+  }
+
+  &.thumb-view {
+    .rdt_Table {
+      .rdt_TableBody {
+        .rdt_TableRow {
+          min-height: 120px;
+        }
+      }
+    }
+  }
+
+  .vx-pagination {
+    min-height: 34px;
+    li.disabled {
+      background-color: $pagination-bg-color;
+      opacity: 0.5;
+      a {
+        color: $body-color;
+      }
+    }
+  }
+
+  .data-list-sidebar {
+    width: 28.57rem;
+    max-width: 90vw;
+    height: 100vh;
+    background-color: $white;
+    position: fixed;
+    left: auto;
+    right: 0;
+    top: 0;
+    z-index: 1033;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+    transform: translateX(100%);
+    &.show {
+      transform: translateX(0%);
+    }
+    .data-list-sidebar-header {
+      padding-bottom: 0.714rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .data-list-fields {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      height: calc(100% - 12rem);
+      position: relative;
+    }
+  }
+
+  .data-list-overlay {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: none;
+    z-index: 1032;
+    transition: all 0.3s ease;
+    &.show {
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 485px) {
+  .data-list {
+    header {
+      .filter-section,
+      .actions-right {
+        width: 100%;
+        input {
+          max-width: none;
+        }
+      }
+    }
+  }
+}
